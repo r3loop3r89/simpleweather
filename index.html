@@ -13,9 +13,7 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe, #43e97b);
-            background-size: 400% 400%;
-            animation: gradientFlow 15s ease infinite;
+            background: linear-gradient(135deg, #667eea, #7d7d7d);
             min-height: 100vh;
             padding: 20px;
             display: flex;
@@ -194,12 +192,6 @@
                     
                     const card = document.createElement('div');
                     card.className = 'weather-card';
-                    
-                    // Generate random gradient colors
-                    const color1 = `hsl(${Math.random() * 360}, ${70 + Math.random() * 30}%, ${50 + Math.random() * 20}%)`;
-                    const color2 = `hsl(${Math.random() * 360}, ${70 + Math.random() * 30}%, ${50 + Math.random() * 20}%)`;
-                    const color3 = `hsl(${Math.random() * 360}, ${70 + Math.random() * 30}%, ${50 + Math.random() * 20}%)`;
-                    card.style.background = `linear-gradient(135deg, ${color1}, ${color2}, ${color3})`;
                     
                     const temp = Math.round(data.current.temperature_2m);
                     const weatherCode = data.current.weather_code;
