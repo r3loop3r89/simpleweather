@@ -13,7 +13,9 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #4facfe, #43e97b);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
             min-height: 100vh;
             padding: 20px;
             display: flex;
@@ -58,11 +60,13 @@
         
         .weather-card {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 15px;
-            padding: 20px;
+            border-radius: 50px;
+            padding: 25px 30px;
             color: white;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
+            background-size: 200% 200%;
+            animation: gradientFlow 3s ease infinite;
         }
         
         .weather-card:hover {
@@ -91,6 +95,18 @@
             text-align: center;
             color: #666;
             font-style: italic;
+        }
+        
+        @keyframes gradientFlow {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
     </style>
 </head>
@@ -178,6 +194,12 @@
                     
                     const card = document.createElement('div');
                     card.className = 'weather-card';
+                    
+                    // Generate random gradient colors
+                    const color1 = `hsl(${Math.random() * 360}, ${70 + Math.random() * 30}%, ${50 + Math.random() * 20}%)`;
+                    const color2 = `hsl(${Math.random() * 360}, ${70 + Math.random() * 30}%, ${50 + Math.random() * 20}%)`;
+                    const color3 = `hsl(${Math.random() * 360}, ${70 + Math.random() * 30}%, ${50 + Math.random() * 20}%)`;
+                    card.style.background = `linear-gradient(135deg, ${color1}, ${color2}, ${color3})`;
                     
                     const temp = Math.round(data.current.temperature_2m);
                     const weatherCode = data.current.weather_code;
